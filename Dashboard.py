@@ -14,11 +14,9 @@ dados = pd.read_csv(url, sep=";")
 # Lista única dos ingredientes
 
 ingredientes = [
-    "Todos", "rum", "coca", "limão", "vodka", "triple sec", "suco de cranberry", "xarope de açúcar",
-    "cachaça cravo e canela", "polpa de maracujá", "hortelã", "água com gás", "limão tahiti",
-    "açúcar", "limão siciliano", "vinho", "gin", "tônica", "Fernet", "licor de limão",
-    "clara de ovo", "Campari", "suco de laranja", "vermute tinto", "conhaque de gengibre",
-    "Cynar", "laranja", "angostura"
+    "Todos", "rum", "vodka", "cachaça", "triple sec", "coca", "limão", "cranberry",
+     "hortelã", "água com gás", "vinho", "gin", "tônica", "fernet", "laranja",
+    "cynar", "espuma de gengibre", "chá mate", "guaraná antartica",  
 ]
 
 
