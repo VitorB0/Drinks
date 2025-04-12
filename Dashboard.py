@@ -11,7 +11,7 @@ dados = pd.read_csv(url, sep=";")
 
 
 # Aplica quebra de linha apenas na coluna Ingredientes
-dados['Ingredientes'] = dados['Ingredientes'].str.replace(',', ',<br>', regex=False)
+dados['Ingredientes'] = dados['Ingredientes'].str.replace(', ', ',<br>', regex=False)
 # Lista única dos ingredientes
 
 ingredientes = [
@@ -39,21 +39,24 @@ else:
     for ingrediente in selected_ingredientes:
         dados_filtrados = dados_filtrados[dados_filtrados['Ingredientes'].str.contains(ingrediente, case=False, na=False)]
 
-# Aplica estilo somente na coluna Ingredientes
+
+# Estilo para ajustar largura da coluna Ingredientes
 st.markdown("""
 <style>
 th {
     text-align: left;
 }
-td:nth-child(2) {
+td:nth-child(2), th:nth-child(2) {
     white-space: pre-wrap;
     word-break: break-word;
     vertical-align: top;
+    min-width: 300px;
+    max-width: 400px;
 }
 </style>
 """, unsafe_allow_html=True)
 
-# Exibe a tabela com HTML, com quebra de linha apenas em Ingredientes
+# Exibe a tabela com HTML
 st.markdown(dados.to_html(escape=False, index=False), unsafe_allow_html=True)
 
 # Listar os drinks filtrados
