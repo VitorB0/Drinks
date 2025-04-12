@@ -32,7 +32,7 @@ else:
 
 # Quebra de linha na coluna Ingredientes
 dados_filtrados = dados_filtrados.copy()
-dados_filtrados['Ingredientes'] = dados_filtrados['Ingredientes'].str.replace(r",\s*", ",<br>", regex=True)
+dados_filtrados['Ingredientes'] = dados_filtrados['Ingredientes'].str.replace(r", \s*", ",<br>", regex=True)
 
 # Estilos e renderização HTML
 st.markdown("""
