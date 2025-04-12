@@ -60,5 +60,4 @@ td:nth-child(2), th:nth-child(2) {
 # Exibe a tabela com HTML
 st.markdown(dados.to_html(escape=False, index=False), unsafe_allow_html=True)
 
-# Listar os drinks filtrados
-st.dataframe(dados_filtrados, use_container_width=True)
+
