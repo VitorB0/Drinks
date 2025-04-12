@@ -16,7 +16,7 @@ dados = pd.read_csv(url, sep=";")
 ingredientes = [
     "Todos", "rum", "vodka", "cachaça", "triple sec", "coca", "limão", "cranberry",
      "hortelã", "água com gás", "vinho", "gin", "tônica", "fernet", "laranja",
-    "cynar", "espuma de gengibre", "chá mate", "guaraná antartica",  
+    "cynar", "espuma de gengibre", "chá mate", "guaraná antartica"  
 ]
 
 
