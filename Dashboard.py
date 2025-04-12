@@ -44,14 +44,15 @@ else:
 st.markdown("""
 <style>
 th {
-    text-align: right;
+    text-align: left !important;
 }
 td:nth-child(2), th:nth-child(2) {
     white-space: pre-wrap;
     word-break: break-word;
     vertical-align: top;
-    min-width: 300px;
-    max-width: 300px;
+    min-width: 200px;
+    max-width: 200px;
+    text-align: left;
 }
 </style>
 """, unsafe_allow_html=True)
