@@ -37,6 +37,7 @@ else:
     dados_filtrados = dados
     for ingrediente in selected_ingredientes:
         dados_filtrados = dados_filtrados[dados_filtrados['Ingredientes'].str.contains(ingrediente, case=False, na=False)]
+dados_filtrados['Ingredientes'] = dados_filtrados['Ingredientes'].str.replace(',', ',\n')
 
 # Listar os drinks filtrados
 st.dataframe(dados_filtrados, use_container_width=True)
