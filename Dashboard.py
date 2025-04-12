@@ -38,6 +38,10 @@ else:
     for ingrediente in selected_ingredientes:
         dados_filtrados = dados_filtrados[dados_filtrados['Ingredientes'].str.contains(ingrediente, case=False, na=False)]
 dados_filtrados['Ingredientes'] = dados_filtrados['Ingredientes'].str.replace(',', ',\n')
+# Replace the \n with an HTML linebreak
+dados_filtrados['Ingredientes'] = dados_filtrados['Ingredientes'].applymap(lambda x: x.replace('\n', '<br>'))
 
+# Show as a static table
+st.markdown(dados_filtrados.to_html(escape=False), unsafe_allow_html=True)
 # Listar os drinks filtrados
 st.dataframe(dados_filtrados, use_container_width=True)
