@@ -10,7 +10,8 @@ url = "https://raw.githubusercontent.com/VitorB0/Drinks/refs/heads/main/dados1.c
 dados = pd.read_csv(url, sep=";")
 
 
-
+# Aplica quebra de linha apenas na coluna Ingredientes
+dados['Ingredientes'] = dados['Ingredientes'].str.replace(',', ',<br>', regex=False)
 # Lista única dos ingredientes
 
 ingredientes = [
@@ -38,26 +39,22 @@ else:
     for ingrediente in selected_ingredientes:
         dados_filtrados = dados_filtrados[dados_filtrados['Ingredientes'].str.contains(ingrediente, case=False, na=False)]
 
-# Estilo para forçar quebra de linha e renderizar HTML
-st.markdown(
-    """
-    <style>
-        table {
-            table-layout: fixed;
-            width: 100%;
-        }
-        td {
-            word-wrap: break-word;
-            white-space: pre-wrap;
-            vertical-align: top;
-        }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+# Aplica estilo somente na coluna Ingredientes
+st.markdown("""
+<style>
+th {
+    text-align: left;
+}
+td:nth-child(2) {
+    white-space: pre-wrap;
+    word-break: break-word;
+    vertical-align: top;
+}
+</style>
+""", unsafe_allow_html=True)
 
-# Exibe a tabela com HTML (quebra de linha com <br>)
-st.markdown(dados_filtrados.to_html(escape=False, index=False), unsafe_allow_html=True)
+# Exibe a tabela com HTML, com quebra de linha apenas em Ingredientes
+st.markdown(dados.to_html(escape=False, index=False), unsafe_allow_html=True)
 
 # Listar os drinks filtrados
 st.dataframe(dados_filtrados, use_container_width=True)
