@@ -38,5 +38,26 @@ else:
     for ingrediente in selected_ingredientes:
         dados_filtrados = dados_filtrados[dados_filtrados['Ingredientes'].str.contains(ingrediente, case=False, na=False)]
 
+# Estilo para forçar quebra de linha e renderizar HTML
+st.markdown(
+    """
+    <style>
+        table {
+            table-layout: fixed;
+            width: 100%;
+        }
+        td {
+            word-wrap: break-word;
+            white-space: pre-wrap;
+            vertical-align: top;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# Exibe a tabela com HTML (quebra de linha com <br>)
+st.markdown(dados_filtrados.to_html(escape=False, index=False), unsafe_allow_html=True)
+
 # Listar os drinks filtrados
 st.dataframe(dados_filtrados, use_container_width=True)
