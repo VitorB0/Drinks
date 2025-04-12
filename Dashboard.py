@@ -6,7 +6,7 @@ st.title('Lista de drinks')
 
 
 # Leitura dos dados
-url = "https://raw.githubusercontent.com/VitorB0/Drinks/refs/heads/main/dados.csv"
+url = "https://raw.githubusercontent.com/VitorB0/Drinks/refs/heads/main/dados1.csv"
 dados = pd.read_csv(url, sep=";")
 
 
